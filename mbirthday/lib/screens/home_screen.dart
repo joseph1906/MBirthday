@@ -21,8 +21,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   static const _portraitUrl =
       'https://lh3.googleusercontent.com/aida-public/AB6AXuAL2YL1BjSQoQxHZyNEaj4Cnq0dWDDiBTWw2m_dVauabTlmxROiihz-qOeFjdyVNAFk1w-7_9XNwOmx-3g_2gu_KX4L9M2Y58nUheHq2PL9Ek2WSI7okN-UfWxcJl0owXfUk8mbkRLIeb44fAt3LXSJdydiL83cQ_nb98jJtHR-130Y8fUevXq4UfwI_vSSl_7WAjpYwUzY4eNlk2ejmprbTqGNQ2c_Fawk2uv0_2lqYJyDOWTkyqdv5O20D4L0xHoCjdrM26Y9Q-Nn';
 
-  static const _birthdaySongUrl =
-      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+  static const _birthdaySongAsset = 'audio/birthday_song.mp4';
 
   static const _messageText =
       "I don't feel like I am in the right person to wish you happy "
@@ -41,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Future<void> _unlock() async {
     setState(() => _unlocked = true);
     try {
-      await _audioPlayer.play(UrlSource(_birthdaySongUrl));
+      await _audioPlayer.play(AssetSource(_birthdaySongAsset));
     } catch (_) {
       // Autoplay can be blocked by the platform; ignore silently like the
       // original web version does.
@@ -97,10 +96,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       height: 64,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: AppColors.surface.withOpacity(0.9),
+        color: AppColors.surface.withValues(alpha: 0.9),
         border: Border(
           bottom: BorderSide(
-            color: AppColors.outlineVariant.withOpacity(0.3),
+            color: AppColors.outlineVariant.withValues(alpha: 0.3),
           ),
         ),
       ),
@@ -152,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primaryContainer.withOpacity(0.15),
+                  color: AppColors.primaryContainer.withValues(alpha: 0.15),
                   blurRadius: 40,
                   offset: const Offset(0, 20),
                 ),
@@ -206,12 +205,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             Container(
               padding: const EdgeInsets.all(28),
               decoration: BoxDecoration(
-                color: AppColors.surface.withOpacity(0.85),
+                color: AppColors.surface.withValues(alpha: 0.85),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.outlineVariant.withOpacity(0.3)),
+                border: Border.all(color: AppColors.outlineVariant.withValues(alpha: 0.3)),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.primaryContainer.withOpacity(0.1),
+                    color: AppColors.primaryContainer.withValues(alpha: 0.1),
                     blurRadius: 50,
                     offset: const Offset(0, 20),
                   ),
@@ -220,7 +219,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               child: Column(
                 children: [
                   Icon(Icons.format_quote,
-                      size: 48, color: AppColors.primaryContainer.withOpacity(0.2)),
+                      size: 48, color: AppColors.primaryContainer.withValues(alpha: 0.2)),
                   Text(
                     _messageText,
                     textAlign: TextAlign.center,
@@ -231,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   Container(
                     height: 1,
                     width: 96,
-                    color: AppColors.primaryContainer.withOpacity(0.3),
+                    color: AppColors.primaryContainer.withValues(alpha: 0.3),
                   ),
                 ],
               ),
@@ -281,14 +280,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color: AppColors.surface,
-        border: Border(top: BorderSide(color: AppColors.outlineVariant.withOpacity(0.2))),
+        border: Border(top: BorderSide(color: AppColors.outlineVariant.withValues(alpha: 0.2))),
       ),
-      child: Row(
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _NavItem(icon: Icons.card_giftcard, label: 'Surprise', selected: true),
-          const _NavItem(icon: Icons.auto_awesome, label: 'Memory', selected: false),
-          const _NavItem(icon: Icons.chat_bubble, label: 'Message', selected: false),
+          _NavItem(icon: Icons.auto_awesome, label: 'Memory', selected: false),
+          _NavItem(icon: Icons.chat_bubble, label: 'Message', selected: false),
         ],
       ),
     );
