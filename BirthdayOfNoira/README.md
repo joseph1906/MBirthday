@@ -24,6 +24,8 @@ original HTML.
   extracted and compressed from the original 21MB video to ~3.7MB)
 - `assets/photos/photo1.jpg` … `photo7.jpg` — your 7 uploaded photos, shown
   in that order during the slideshow
+- `assets/portrait/portrait.jpg` — the hero portrait shown on the first
+  screen, right after the splash
 
 ## Setup
 

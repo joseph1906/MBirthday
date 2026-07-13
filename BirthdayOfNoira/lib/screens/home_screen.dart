@@ -33,8 +33,7 @@ class _HomeScreenState extends State<HomeScreen>
     'assets/photos/photo7.jpg',
   ];
 
-  static const _portraitUrl =
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuAL2YL1BjSQoQxHZyNEaj4Cnq0dWDDiBTWw2m_dVauabTlmxROiihz-qOeFjdyVNAFk1w-7_9XNwOmx-3g_2gu_KX4L9M2Y58nUheHq2PL9Ek2WSI7okN-UfWxcJl0owXfUk8mbkRLIeb44fAt3LXSJdydiL83cQ_nb98jJtHR-130Y8fUevXq4UfwI_vSSl_7WAjpYwUzY4eNlk2ejmprbTqGNQ2c_Fawk2uv0_2lqYJyDOWTkyqdv5O20D4L0xHoCjdrM26Y9Q-Nn';
+  static const _portraitAsset = 'assets/portrait/portrait.jpg';
 
   static const _birthdaySongAsset = 'audio/birthday_song.mp3';
 
@@ -239,8 +238,8 @@ class _HomeScreenState extends State<HomeScreen>
               padding: const EdgeInsets.all(8),
               color: AppColors.surface,
               child: ClipRRect(
-                child: Image.network(
-                  _portraitUrl,
+                child: Image.asset(
+                  _portraitAsset,
                   width: isMobile ? 256 : 320,
                   height: isMobile ? 320 : 384,
                   fit: BoxFit.cover,

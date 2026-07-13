@@ -32,6 +32,7 @@ flutter:
     - assets/photos/photo5.jpg
     - assets/photos/photo6.jpg
     - assets/photos/photo7.jpg
+    - assets/portrait/portrait.jpg
 
 # ---- App icon configuration ----
 # After running `flutter pub get`, generate the launcher icons with:
